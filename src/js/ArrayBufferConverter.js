@@ -5,10 +5,8 @@ export default class ArrayBufferConverter {
   }
 
   static toString(bufferView) {
-    const potentialString = [];
-    for (let i = 0; i < bufferView.length; i += 1) {
-      potentialString.push((String.fromCharCode(bufferView[i])));
-    }
-    return potentialString.join('');
+    return bufferView.reduce(
+      (sum, current) => sum + String.fromCharCode(current), '',
+    );
   }
 }
